@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--1点击按钮弹出对话框-->
+    <button v-on:click="AlertMe">按钮</button>
+    <div>
+        <p>
+            <!--2即时输出输入框的内容-->
+            <input type="text" v-on:keyup="contents=$event.target.value">
+            {{contents}}
+        </p>
+        <!--3输入完成后按下enter键后输出内容-->
+        <p>
+            <!--2即时输出输入框的内容-->
+            <input type="text" v-on:keyup.enter="contents1=$event.target.value">
+            {{contents1}}
+        </p>
+    </div>
+
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            contents:"",
+            contents1:"",
+        },
+        methods:{
+            AlertMe:function(){
+                alert("hello")
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <style>
+        .demo{
+            width: 100px;
+            height: 30px;
+            background: grey;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="start">Start</button>
+    <div class="demo">
+        <div :style="mystyle"></div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            color:"red",
+            mystyle:{
+                background:"red",
+                width:"0px",
+                height:"30px",
+            }
+        },
+        methods:{
+            start:function () {
+                width=0;
+                let inter=setInterval(()=>{
+                    if(width!=100)
+                      width+=10;
+                    this.mystyle.width=width+"px";
+                },1000)
+            }
+        }
+    })
+</script>
+</body>
+</html>

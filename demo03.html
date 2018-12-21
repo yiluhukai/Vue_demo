@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--计算属性-->
+    <button @click="num++">increase 1</button>
+    <button @click="num+=5">increase 5</button>
+    <p>{{num}}</p>
+    <p>{{result}}</p>
+    <!--侦听器-->
+
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            num:0
+        },
+        computed:{
+            result:function () {
+                return this.num<5?"not there yet!":"almostly"
+            }
+        },
+        watch:{
+            result:function () {
+                setTimeout(()=>{
+                    this.num=0
+                },5000)
+            }
+        }
+    })
+</script>
+</body>
+</html>
